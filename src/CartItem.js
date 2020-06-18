@@ -27,6 +27,11 @@ class CartItem extends React.Component{
     }
 
     decreaseQuantity = () =>{
+        const {qty} = this.state;
+
+        if(qty === 0)
+            return ;
+
         this.setState((prevState) => {
             return {
                 qty : prevState.qty - 1
@@ -34,6 +39,7 @@ class CartItem extends React.Component{
         })
     }
     render() {
+        console.log(this.setState)
         const {price,title, qty} = this.state;
         return (
             <div className="cart-item">
