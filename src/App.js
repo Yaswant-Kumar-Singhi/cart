@@ -13,21 +13,21 @@ class App extends React.Component {
                 price : 99,
                 title : 'Watch',
                 qty : 1,
-                img : '',
+                img : 'https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
                 id : 1
             },
             {
                 price : 999,
                 title : 'phone',
                 qty : 10,
-                img : '',
+                img : 'https://images.unsplash.com/photo-1560617544-b4f287789e24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
                 id : 2
             },
             {
                 price : 999,
                 title : 'Laptop',
                 qty : 4,
-                img : '',
+                img : 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
                 id : 3 
             }
         ]
