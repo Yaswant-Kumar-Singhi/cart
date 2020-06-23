@@ -25,7 +25,7 @@ class Cart extends React.Component{
                     title : 'Laptop',
                     qty : 4,
                     img : '',
-                    id : 3
+                    id : 3 
                 }
             ]
         }
@@ -37,7 +37,11 @@ class Cart extends React.Component{
             <div className="cart">
                 
                 {products.map((product)=>{
-                    return <CartItem product = {product} key={product.id} />
+                    return (
+                         <CartItem 
+                         product = {product} 
+                         key={product.id}
+                          />)
                 })}
             </div>
         )
