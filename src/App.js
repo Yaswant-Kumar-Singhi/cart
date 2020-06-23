@@ -112,7 +112,9 @@ getCartValue = () =>{
       onDecreaseQuantity = {this.handleDecreaseQuantity}
       onDeleteProduct = {this.handleDeleteProduct}
       />
-      <Footer totalCount = {this.getCartValue()}      />
+      <Footer 
+       totalCount = {this.getCartValue()}      
+      />
      </div>
   );
 }
