@@ -17,7 +17,7 @@ class CartItem extends React.Component{
                     <div className="cart-item-actions">
                         {/* Buttons TODO Later*/}
                         <img alt="increase" className = "action-icons" src="https://image.flaticon.com/icons/svg/864/864380.svg"  onClick={()=>this.props.onIncreaseQuantity(this.props.product)}/>
-                        <img alt="decrease" className = "action-icons" src="https://image.flaticon.com/icons/svg/864/864373.svg"  onClick={this.decreaseQuantity}/>
+                        <img alt="decrease" className = "action-icons" src="https://image.flaticon.com/icons/svg/864/864373.svg"  onClick={()=>this.props.onDecreaseQuantity(this.props.product)}/>
                         <img alt="delete" className = "action-icons" src="https://image.flaticon.com/icons/svg/1345/1345823.svg" />
                     </div>
                 </div>
