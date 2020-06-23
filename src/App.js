@@ -2,6 +2,7 @@ import React from 'react';
 //import CartItem from './CartItem'
 import Cart from './Cart'
 import Navbar from './Navbar'
+import Footer from  './Footer'
 
 class App extends React.Component {
   constructor () {
@@ -83,6 +84,22 @@ getCartCount = ()=>{
   return count;
 
 }
+
+getCartValue = () =>{
+
+  const {products} = this.state;
+
+  let count = 0;
+
+  products.forEach(products => {
+    
+    count += products.price * products.qty
+    
+  });
+
+  return count;
+
+}
   
   render() {
     const {products} = this.state;
@@ -95,6 +112,7 @@ getCartCount = ()=>{
       onDecreaseQuantity = {this.handleDecreaseQuantity}
       onDeleteProduct = {this.handleDeleteProduct}
       />
+      <Footer totalCount = {this.getCartValue()}      />
      </div>
   );
 }
