@@ -46,11 +46,22 @@ handleIncreaseQuantity = (product) => {
     console.log('Increasing', product);
     const {products} = this.state;
     const index = products.indexOf(product);
-
+/*
     products[index].qty +=1;
     
     this.setState({
         products : products
+    })
+*/
+    const docRef = firebase.firestore().collection('products').doc(products[index].id);
+    docRef.update({
+      qty : products[index].qty + 1
+    })
+    .then(()=>{
+      console.log('Updated Successfully')
+    })
+    .catch((error)=>{
+      console.log('error in updation')
     })
 }
 
@@ -58,7 +69,7 @@ handleDecreaseQuantity = (product) => {
     console.log('Increasing', product);
     const {products} = this.state;
     const index = products.indexOf(product);
-
+/*
     if(products[index].qty === 0)
         return
     else
@@ -67,6 +78,22 @@ handleDecreaseQuantity = (product) => {
     this.setState({
         products : products
     })
+*/
+    if(products[index].qty === 0)
+        return
+    else{
+
+    const docRef = firebase.firestore().collection('products').doc(products[index].id);
+    docRef.update({
+      qty : products[index].qty - 1
+    })
+    .then(()=>{
+      console.log('Updated Successfully')
+    })
+    .catch((error)=>{
+      console.log('error in updation')
+    })
+  }
 }
 
 handleDeleteProduct = (id)=> {
@@ -108,6 +135,24 @@ getCartValue = () =>{
   return count;
 
 }
+/*
+  addProduct = () => {
+    firebase
+     .firestore()
+     .collection('products')
+     .add({
+       img : '',
+       price: 900,
+       qty:3,
+       title:'washing machine'
+     })
+     .then((docRef)=>{
+       console.log('product has been added',docRef)
+     })
+     .catch((erroe)=>{
+       console.log('error in adding in produt')
+     })
+  }*/
   //required method when creating class. Creats UI
   //Render function is a pure fuction. 
   render() {
@@ -115,6 +160,7 @@ getCartValue = () =>{
   return (
     <div className="App">
       <Navbar count={this.getCartCount()} />
+      {/* <button onClick={this.addProduct}>Add Product</button>*/}
       <Cart
       products = {products}
       onIncreaseQuantity = {this.handleIncreaseQuantity}
