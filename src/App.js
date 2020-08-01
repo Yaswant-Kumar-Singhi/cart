@@ -19,6 +19,7 @@ componentDidMount(){
   firebase
     .firestore()
     .collection('products')
+    .orderBy('price','asc')
     .onSnapshot((snapshot) => {
       console.log(snapshot);
 
