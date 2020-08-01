@@ -98,11 +98,21 @@ handleDecreaseQuantity = (product) => {
 
 handleDeleteProduct = (id)=> {
     const {products} = this.state;
-
+/*
     const items = products.filter((items) => items.id !== id);
 
     this.setState({
         products : items
+    })
+*/
+    const docRef = firebase.firestore().collection('products').doc(id);
+    docRef
+    .delete()
+    .then(()=>{
+      console.log('deleted successfully')
+    })
+    .catch(()=>{
+      console.log('error in deletion')
     })
 }
 
